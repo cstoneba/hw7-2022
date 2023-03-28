@@ -9,11 +9,13 @@ window.addEventListener("load", function() {
 });
 
 
+document.querySelector("#mute").innerHTML = "Unmute";
 document.querySelector("#play").addEventListener("click", function() {document.querySelector("#player1").load();
 	
 	console.log("Play Video");
 	video.play();
 	video.muted = true;
+	document.querySelector("#volume").innerHTML = slider.value + "%";
 
 });
 
