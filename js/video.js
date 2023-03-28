@@ -9,10 +9,32 @@ window.addEventListener("load", function() {
 });
 
 document.querySelector("#play").addEventListener("click", function() {
+
+	let slider = document.querySelector("#slider");
+	let volume_output = document.querySelector("#volume");
+	volume_output.innerHTML= slider.value;
+	slider.oninput = function(){
+	volume_output.innerHTML = this.value + "%";
+	};
 	document.querySelector("#player1").load();
 	console.log("Play Video");
 	video.play();
 	document.querySelector("#volume").innerHTML = video.volume + "%";
+
+	document.querySelector("#mute").addEventListener("click", function(){
+		if(slider.value > 0){
+			slider.value = 0;
+			volume_output = 0;
+			document.querySelector("#mute").innerHTML = "Unmute";
+		}
+	
+		else{
+			slider.value = 100;
+			volume_output = 100;
+			document.querySelector("#mute").innerHTML = "Mute";
+	
+		}
+	})
 
 });
 
@@ -42,28 +64,7 @@ document.querySelector("#skip").addEventListener("click", function() {
 	
 });
 
-let slider = document.querySelector("#slider");
-let volume_output = document.querySelector("#volume");
-volume_output.innerHTML= slider.value;
 
-slider.oninput = function(){
-	volume_output.innerHTML = this.value + "%";
-};
-
-document.querySelector("#mute").addEventListener("click", function(){
-	if(slider.value > 0){
-		slider.value = 0;
-		volume_output = 0;
-		document.querySelector("#mute").innerHTML = "Unmute";
-	}
-
-	else{
-		slider.value = 100;
-		volume_output = 100;
-		document.querySelector("#mute").innerHTML = "Mute";
-
-	}
-})
 
 
 document.querySelector("#vintage").addEventListener("click", function(){
