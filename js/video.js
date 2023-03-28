@@ -8,14 +8,10 @@ window.addEventListener("load", function() {
 	console.log("Loop is set to false");
 });
 
-
-document.querySelector("#mute").innerHTML = "Unmute";
-document.querySelector("#slider").value = 0;
 document.querySelector("#play").addEventListener("click", function() {document.querySelector("#player1").load();
 	
 	console.log("Play Video");
 	video.play();
-	video.muted = true;
 	document.querySelector("#volume").innerHTML = slider.value + "%";
 
 });
@@ -54,13 +50,15 @@ document.querySelector("#mute").addEventListener("click", function(){
 	if(video.muted){
 		video.muted = false; 
 		mute_button.innerHTML = "Mute";
-		slider.value = 100;
+		// slider.value = 100;
+		// document.querySelector("#volume").innerHTML = video.volume + "%";
 	}
 
 	else{
 		video.muted = true;
 		mute_button.innerHTML = "Unmute";
-		slider.value = 0;
+		// slider.value = 0;
+		// document.querySelector("#volume").innerHTML = video.volume + "%";
 
 	}
 });
@@ -74,6 +72,7 @@ document.querySelector("#slider").addEventListener("change", function(){
 
 	// Update the current slider value (each time you drag the slider handle)
 	volume.innerHTML = slider.value + "%";
+	video.volume = slider.value;
 });
 
 document.querySelector("#vintage").addEventListener("click", function(){
