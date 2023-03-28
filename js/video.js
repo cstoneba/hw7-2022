@@ -10,6 +10,7 @@ window.addEventListener("load", function() {
 
 
 document.querySelector("#mute").innerHTML = "Unmute";
+document.querySelector("#slider").value = 0;
 document.querySelector("#play").addEventListener("click", function() {document.querySelector("#player1").load();
 	
 	console.log("Play Video");
