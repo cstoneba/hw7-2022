@@ -23,16 +23,16 @@ document.querySelector("#pause").addEventListener("click", function() {
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
-	video.defaultPlaybackRate *= 0.9;
+	video.playbackRate *= 0.9;
 	console.log("Slow down video");
-	console.log("Speed is " + video.defaultPlaybackRate);
+	console.log("Speed is " + video.playbackRate);
 	
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-	video.defaultPlaybackRate *= 1.1;
+	video.playbackRate *= 1.1;
 	console.log("Speed up video");
-	console.log("Speed is " + video.defaultPlaybackRate);
+	console.log("Speed is " + video.playbackRate);
 	
 });
 
@@ -44,7 +44,7 @@ document.querySelector("#skip").addEventListener("click", function() {
 
 let slider = document.querySelector("#slider");
 let volume_output = document.querySelector("#volume");
-// volume_output.innerHTML= slider.value;
+volume_output.innerHTML= slider.value;
 
 slider.oninput = function(){
 	volume_output.innerHTML = this.value + "%";
