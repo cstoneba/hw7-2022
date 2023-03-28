@@ -8,37 +8,16 @@ window.addEventListener("load", function() {
 	console.log("Loop is set to false");
 });
 
-document.querySelector("#play").addEventListener("click", function() {
 
-
-	document.querySelector("#player1").load();
+document.querySelector("#play").addEventListener("click", function() {document.querySelector("#player1").load();
+	
 	console.log("Play Video");
 	video.play();
-	document.querySelector("#volume").innerHTML = video.volume + "%";
-
-	document.querySelector("#mute").addEventListener("click", function(){
-		if(video.volume > 0){
-			slider.value = 0;
-			volume_output = 0;
-			document.querySelector("#mute").innerHTML = "Unmute";
-		}
-	
-		else{
-			slider.value = 100;
-			volume_output = 100;
-			document.querySelector("#mute").innerHTML = "Mute";
-	
-		}
-	})
-
-	let slider = document.querySelector("#slider");
-	let volume_output = document.querySelector("#volume");
-	volume_output.innerHTML= slider.value + "%";
-	slider.oninput = function(){
-	volume_output.innerHTML = this.value + "%";
-	};
+	video.muted = true;
 
 });
+
+
 
 document.querySelector("#pause").addEventListener("click", function() {
 	console.log("Pause Video");
@@ -66,8 +45,31 @@ document.querySelector("#skip").addEventListener("click", function() {
 	
 });
 
+mute_button = document.querySelector("#mute");
+
+document.querySelector("#mute").addEventListener("click", function(){
+	if(video.muted){
+		video.muted = false; 
+		mute_button.innerHTML = "Mute";
+	}
+
+	else{
+		video.muted = true;
+		mute_button.innerHTML = "Unmute";
+
+	}
+});
 
 
+document.querySelector("#slider").addEventListener("change", function(){
+	
+	let slider = document.querySelector("#slider");
+	console.log(slider.value);
+	let volume = document.querySelector("#volume");
+
+	// Update the current slider value (each time you drag the slider handle)
+	volume.innerHTML = slider.value + "%";
+});
 
 document.querySelector("#vintage").addEventListener("click", function(){
 	video.classList.add("oldSchool");
