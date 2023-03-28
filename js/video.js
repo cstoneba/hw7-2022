@@ -69,10 +69,13 @@ document.querySelector("#slider").addEventListener("change", function(){
 	let slider = document.querySelector("#slider");
 	console.log(slider.value);
 	let volume = document.querySelector("#volume");
+	video.volume = slider.value / 100;
+	console.log("The current value is ", video.volume);
+	
 
 	// Update the current slider value (each time you drag the slider handle)
 	volume.innerHTML = slider.value + "%";
-	video.volume = slider.value;
+	
 });
 
 document.querySelector("#vintage").addEventListener("click", function(){
